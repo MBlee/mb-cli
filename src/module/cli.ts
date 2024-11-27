@@ -10,9 +10,9 @@ const cli = (cmd: Command) => {
 		.command("cli")
 		.argument("<cliApps...>")
 		.description("下载Cli模板")
-		.action(() => {
-			const spinner = ora(chalk.cyan("正在下载Cli模板...")).start();
-			for (const cliApp of cmd.args) {
+		.action((cliApps) => {
+			const spinner = ora(chalk.cyan("下载Cli模板...")).start();
+			for (const cliApp of cliApps) {
 				mMkdir(cliApp).then(() => {
 					down(
 						"MBlee/mb-root",

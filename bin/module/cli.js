@@ -8,9 +8,9 @@ const cli = (cmd) => {
         .command("cli")
         .argument("<cliApps...>")
         .description("下载Cli模板")
-        .action(() => {
-        const spinner = ora(chalk.cyan("正在下载Cli模板...")).start();
-        for (const cliApp of cmd.args) {
+        .action((cliApps) => {
+        const spinner = ora(chalk.cyan("下载Cli模板...")).start();
+        for (const cliApp of cliApps) {
             mMkdir(cliApp).then(() => {
                 down("MBlee/mb-root", cliApp, { clone: false }, (err) => {
                     spinner.succeed(chalk.green(err ? `下载至${cliApp}失败！` : `下载至${cliApp}成功`));

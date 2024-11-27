@@ -5,8 +5,7 @@
   "main": "./bin/index.js",
   "type": "module",
   "scripts": {
-    "start": "tsc --watch",
-    "deploy": "npm link",
+    "deploy": "tsc | npm link",
     "un-deploy": "npm unlink -g"
   },
   "bin": {
