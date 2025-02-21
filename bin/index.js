@@ -2,6 +2,7 @@
 import { Command } from 'commander';
 import { help } from './module/help.js';
 import { cli } from './module/cli.js';
+import { mock } from './module/mock.js';
 const cmd = new Command();
 cmd.useCmd = function (cmd) {
     cmd && cmd(this);
@@ -9,5 +10,6 @@ cmd.useCmd = function (cmd) {
 cmd.version('1.0.0');
 /* 命令行模块 */
 cmd.useCmd(cli);
+cmd.useCmd(mock);
 cmd.useCmd(help);
 cmd.parse();

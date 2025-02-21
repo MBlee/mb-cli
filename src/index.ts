@@ -8,6 +8,7 @@ import clipboard from 'clipboardy'
 
 import {help} from './module/help.js'
 import {cli} from './module/cli.js'
+import {mock} from './module/mock.js'
 
 interface TCMD extends Command{
 	useCmd?:(cmd:any)=>void
@@ -20,6 +21,7 @@ cmd.version('1.0.0')
 
 /* 命令行模块 */
 cmd.useCmd(cli)
+cmd.useCmd(mock)
 cmd.useCmd(help)
 
 cmd.parse()
